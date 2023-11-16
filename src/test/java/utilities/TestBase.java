@@ -2,6 +2,7 @@ package utilities;
 
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -19,9 +20,17 @@ public class TestBase {
     }
     @After
     public void tearDown() throws Exception {
-        //  driver.close();
-        Thread.sleep(3000);
+        driver.close();
+        driver.quit();
+
     }
 
+    public void bekle(int saniye) {
 
+        try {
+            Thread.sleep(saniye*1000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }
